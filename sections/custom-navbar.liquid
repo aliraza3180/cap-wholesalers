@@ -1,0 +1,198 @@
+<header class="custom-navbar" style="background-color: {{ section.settings.navbar_background_color }}">
+    <div class="nav-container">
+        <div class="logo">
+            <a href="{{ shop.url }}">
+                <img src="{{ section.settings.logo | image_url }}" alt="Cap Wholesalers" />
+            </a>
+        </div>
+
+        <div class="search-bar">
+            <form action="/search" method="get" role="search">
+                <input type="text" name="q" placeholder="{{ section.settings.search_placeholder }}" />
+                
+                <button class="btn-navbar" type="submit"><img src="{{ 'seacrh-icon.png' | asset_url }}" alt="Search Icon">
+                Search</button>
+            </form>
+        </div>
+
+       
+
+        <div class="cart-login-section">
+            <div class="nav-links">
+                <a href="{{ section.settings.link_reviews }}">
+                    {{ section.settings.reviews_text }}
+                </a>
+                <div class="custom-hr">
+
+                </div>
+                <a href="{{ section.settings.link_size_charts }}">
+                    {{ section.settings.size_charts_text }}
+                </a>
+            </div>
+            <div class="custom-btns">
+                <a class="a_tag_2" href="/cart" style="color: {{ section.settings.text_color_nav }};"><img src="{{ 'user.png' | asset_url }}" width="15px" height="15px" alt="user Icon">
+                <span>{{ cart.item_count }} Item(s) / {{ cart.total_price | money }}</span>
+            </a>
+            {% if customer %}
+                <a class="a_tag_2" href="/account" style="color: {{ section.settings.text_color_nav }};"><img src="{{ 'user.png' | asset_url }}" width="15px" height="15px" alt="user Icon">My Account</a>
+            {% else %}
+                <a class="a_tag_2" href="/account/login" style="color: {{ section.settings.text_color_nav }};"><img src="{{ 'user.png' | asset_url }}" width="15px" height="15px" alt="user Icon">Login/New User</a>
+            {% endif %}
+            </div>
+            
+        </div>
+    </div>
+</header>
+
+
+<style>
+  .custom-navbar {
+    padding: 5px 20px;
+  }
+  .nav-container{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+  }
+
+  .custom-navbar .logo img {
+    width: 290px;
+    height: 57px;
+  }
+
+  .search-bar form {
+    display: flex;
+    align-items: center;
+    border: 1px solid #a53336;
+
+    background-color: white;
+    width: 668px;
+    max-width: 668px;
+    border-radius: 5px;
+  }
+.search-bar input::placeholder {
+    color: #c3c3c3; 
+    font-size: 14px; 
+    opacity: 1;
+    font-weight: 500;
+}
+  .search-bar input[type="text"] {
+    padding: 5px;
+    border: none;
+    outline: none;
+    flex-grow: 1;
+    padding: 14px;
+    border-radius: 5px;
+  }
+
+  .search-bar button {
+    background-color: #a53336;
+    color: white;
+    border: none;
+    display: flex;
+    font-size: 15px;
+    font-weight: 600;
+    align-items: center;
+    padding: 15px 20px;
+    cursor: pointer;
+  }
+  .cart-login-section{
+    display: flex;
+    align-items: center;
+    gap: 25px;
+  }
+  .custom-hr{
+    height: 14px;
+    width: 1px;
+    background-color: #CBCBCB;
+  }
+  .nav-links{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .nav-links a {
+    color: #a53336;
+    margin: 0px;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  .custom-btns {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+  .cart-login-section .a_tag_2 {
+    background-color: #a53336;
+    color: white;
+    padding: 15px 25px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-left: 10px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: bold;
+  }
+  
+
+</style>
+
+
+{% schema %}
+  {
+    "name": "Custom Navbar",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "logo",
+        "label": "Logo"
+      },
+      {
+        "type": "text",
+        "id": "search_placeholder",
+        "label": "Search Placeholder",
+        "default": "What are you looking for?"
+      },
+      {
+        "type": "url",
+        "id": "link_reviews",
+        "label": "Link for Reviews",
+        
+      },
+      {
+        "type": "url",
+        "id": "link_size_charts",
+        "label": "Link for Size Charts"
+      }, {
+        "type": "text",
+        "id": "reviews_text",
+        "label": "Text for Reviews Link",
+        "default": "Cap Wholesalers Reviews"
+      }, {
+        "type": "text",
+        "id": "size_charts_text",
+        "label": "Text for Size Charts Link",
+        "default": "Size Charts"
+      }, {
+        "type": "color",
+        "id": "navbar_background_color",
+        "label": "Navbar Background Color",
+        "default": "#a53336"
+      }, {
+        "type": "color",
+        "id": "text_color_nav",
+        "label": "Text Color",
+        "default": "#ffffff"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Custom Navbar"
+      }
+    ]
+  }
+
+{% endschema %}

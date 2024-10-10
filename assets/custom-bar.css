@@ -1,0 +1,25 @@
+.container-bar {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+
+  padding: 40px 30px 4px 30px;
+  margin: 0 auto;
+}
+.bar-left {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.left-text {
+  font-size: 14px;
+  margin: 0;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: white;
+}
+.bar-right {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}

@@ -1,0 +1,110 @@
+<div id="announcement-bar">
+  <div class="container-bar">
+
+    <div class="bar-left">
+      <img
+        class="img-bar"
+        src="{{ section.settings.phone_icon | img_url: 'master' }}"
+        alt=""
+        width="13"
+        height="13">
+
+      <p class="left-text">
+        {{ section.settings.announcement_text_1 }}
+      </p>
+    </div>
+
+    <div class="bar-center">
+      <p class="left-text">
+        {{ section.settings.announcement_text_2 }}
+      </p>
+    </div>
+
+    <div class="bar-right">
+      {% for block in section.blocks limit: 4 %}
+        {% if block.type == 'icons' %}
+          <a
+            href="{{ block.settings.announcement_icon_links }}"
+            class="social-icon"
+            target="_blank"
+            style="text-decoration: none;">
+            {% if block.settings.announcement_icon != blank %}
+              <img
+                src="{{ block.settings.announcement_icon | img_url: 'icon' }}"
+                alt="Social Icon"
+                style="object-fit: contain;"
+                width="15px"
+                height="15px">
+            {% endif %}
+          </a>
+        {% endif %}
+      {% endfor %}
+    </div>
+
+  </div>
+</div>
+
+<style>
+  #announcement-bar {
+    background-color: {{ section.settings.bg-color-announce }};
+  }
+</style>
+
+{% schema %}
+  {
+    "name": "Custom Announcement Bar",
+    "settings": [
+      {
+        "type": "color",
+        "id": "bg-color-announce",
+        "label": "Background Color",
+        "default": "#A53336"
+      },
+      {
+        "type": "image_picker",
+        "id": "phone_icon",
+        "label": "Icon"
+      },
+      {
+        "type": "text",
+        "id": "announcement_text_1",
+        "label": "Announcement Text Left",
+        "default": "Toll-Free 877-984-CAPS (2277)"
+      },
+      {
+        "type": "color",
+        "id": "color-text-1",
+        "label": "Left Text Color",
+        "default": "#FFFFFF"
+      }, {
+        "type": "text",
+        "id": "announcement_text_2",
+        "label": "Announcement Text Center",
+        "default": "Due to the high demand for Otto brand caps ship time may be slower than normal."
+      }
+    ],
+    "blocks": [
+      {
+        "type": "icons",
+        "name": "Social Icons",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "announcement_icon",
+            "label": "Choose Social Icon"
+          }, {
+            "type": "url",
+            "id": "announcement_icon_links",
+            "label": "Choose Icon Link"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Custom Announcement Bar",
+        "category": "Custom"
+      }
+    ]
+  }
+{% endschema %}
