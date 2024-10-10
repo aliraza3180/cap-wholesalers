@@ -1,0 +1,42 @@
+.filter-main {
+  padding: 0 40px;
+  background: black;
+}
+.brand-filter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.brand-link {
+  text-decoration: none;
+}
+.filter-button {
+  text-decoration: none;
+  color: white;
+  background: #a53336;
+  padding: 3px 44px;
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: bold;
+}
+.brand-list {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.brand-list li {
+  list-style: none;
+}
+.brand-link {
+  color: white;
+  padding: 4px 10px;
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: 600;
+}
+.brand-link.active {
+  background: #a53336;
+}
+.brand-link:hover {
+  background: #a53336;
+}

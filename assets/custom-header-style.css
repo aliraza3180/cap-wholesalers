@@ -1,0 +1,84 @@
+.header-main {
+  display: flex;
+  padding:  30px;
+}
+.header-left {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #a53336;
+  border-radius: 8px;
+}
+.collection-list {
+  display: flex;
+  flex-direction: column;
+  padding: 14px 0 14px 26px;
+}
+.collection-heading {
+  background: #a53336;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 16px 107px 16px 16px;
+  border-radius: 8px 8px 0 0px;
+}
+.menu-toggle {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+.menu-toggle .fa-bars {
+  font-size: 22px;
+  color: #ffffff;
+}
+.shop-by {
+  text-decoration: none;
+  color: white;
+  margin: 0;
+  font-size: 15px;
+  font-weight: 600;
+}
+.collection-title {
+  text-decoration: none;
+  color: black;
+  font-size: 15px;
+  font-weight: 700;
+}
+.swiper .mySwiper{
+}
+.swiper-slide{
+display: flex;
+width: 900px;
+height: 554px;
+justify-content: end;
+align-items: center;
+border-radius: 4px;
+
+}
+.slider-cont{
+  margin-right: 109px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  align-items: center;
+}
+.slider-heading{
+  font-size: 62px;
+  font-weight: bold;
+  color: #ffffff;
+  text-align: center;
+  margin: 0;
+  line-height: 59px;
+}
+.hero-btn{
+  background: #a53336;
+  color: white;
+  font-size: 18px;
+  line-height: 59px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  padding: 0px 55px;
+}
+.swiper-button-next , .swiper-button-prev{
+  display: block;
+}

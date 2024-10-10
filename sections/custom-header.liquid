@@ -1,0 +1,68 @@
+<div class="header-main">
+  <div class="header-left">
+    <div class="collection-heading">
+      <button class="menu-toggle">
+        <i class="fas fa-bars"></i>
+      </button>
+      <h2 class="shop-by">
+        Shop by Collection
+      </h2>
+    </div>
+    <div class="collection-list">
+      {% for collection in collections %}
+        <div class="collection-item">
+          <a class="collection-title" href="/collections/{{ collection.handle }}">
+            {{ collection.title }}
+          </a>
+        </div>
+      {% endfor %}
+    </div>
+
+  </div>
+
+  <div class="swiper mySwiper">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide" style="background: url('{{ 'truck-bg.png' | asset_url }}') no-repeat center center; background-size: cover;">
+        <div class="slider-cont">
+          <h2 class="slider-heading"> 
+            HOTEST <br>
+            SNAPBACKS
+          </h2>
+          <button class="hero-btn">SHOP NOW</button>
+        </div>
+      </div>
+
+    </div>
+    <button class="swiper-button-next"></button>
+    <button class="swiper-button-prev"></button>
+  </div>
+  <div class="header-left"></div>
+</div>
+
+{% schema %}
+  {
+    "name": "Custom Header",
+    "settings": [],
+    "presets": [
+      {
+        "name": "Custom Header",
+        "category": "Custom"
+      }
+    ]
+  }
+{% endschema %}
+
+<script>
+   var swiper = new Swiper(".mySwiper", {
+  navigation: {
+    nextEl: ".swiper-button-next",
+    prevEl: ".swiper-button-prev",
+  },
+  autoplay: {
+    delay: 3000, // Autoplay delay in milliseconds
+    disableOnInteraction: false,
+  },
+  loop: true, // Enable infinite loop
+});
+  
+</script>

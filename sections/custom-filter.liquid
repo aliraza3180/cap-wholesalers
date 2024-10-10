@@ -1,37 +1,72 @@
-<div>
+<div class="filter-main">
   <div class="brand-filter">
     <a href="/collections/all" class="filter-button">SHOP BY BRAND NAME</a>
     <ul class="brand-list">
       <li>
-        <a href="/collections/adams-headwear">Adams Headwear</a>
+        <a href="/collections/adams-headwear" class="brand-link">Adams Headwear</a>
       </li>
       <li>
-        <a href="/collections/imperial-hats">Imperial Hats</a>
+        <a href="/collections/imperial-hats" class="brand-link">Imperial Hats</a>
       </li>
       <li>
-        <a href="/collections/kati-sportsman">Kati/Sportsman</a>
+        <a href="/collections/kati-sportsman" class="brand-link">Kati/Sportsman</a>
       </li>
       <li>
-        <a href="/collections/legacy-headwear">Legacy Headwear</a>
+        <a href="/collections/legacy-headwear" class="brand-link">Legacy Headwear</a>
       </li>
       <li>
-        <a href="/collections/mega">Mega</a>
+        <a href="/collections/mega" class="brand-link">Mega</a>
       </li>
       <li>
-        <a href="/collections/otto-hats">Otto Hats</a>
+        <a href="/collections/otto-hats" class="brand-link">Otto Hats</a>
       </li>
       <li>
-        <a href="/collections/outdoor-caps">Outdoor Caps</a>
+        <a href="/collections/outdoor-caps" class="brand-link">Outdoor Caps</a>
       </li>
       <li>
-        <a href="/collections/pacific-headwear-augusta">Pacific Headwear Augusta</a>
+        <a href="/collections/pacific-headwear-augusta" class="brand-link">Pacific Headwear Augusta</a>
       </li>
       <li>
-        <a href="/collections/reprime">Reprime</a>
+        <a href="/collections/reprime" class="brand-link">Reprime</a>
       </li>
       <li>
-        <a href="/collections/richardson-hats-all-styles">Richardson Hats: All Styles</a>
+        <a href="/collections/richardson-hats-all-styles" class="brand-link">Richardson Hats: All Styles</a>
       </li>
     </ul>
   </div>
 </div>
+
+
+{% schema %}
+  {
+    "name": "Filter 1",
+    "settings": [],
+    "presets": [
+      {
+        "name": "Custom Filter",
+        "category": "Custom"
+      }
+    ]
+  }
+{% endschema %}
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+    const brandLinks = document.querySelectorAll('.brand-link');
+    
+    brandLinks.forEach(link => {
+        link.addEventListener('click', function(event) {
+            brandLinks.forEach(link => link.classList.remove('active'));
+            
+            event.target.classList.add('active');
+        });
+    });
+  
+    const currentUrl = window.location.pathname;
+    brandLinks.forEach(link => {
+        if (link.getAttribute('href') === currentUrl) {
+            link.classList.add('active');
+        }
+    });
+  });
+</script>
