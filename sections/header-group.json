@@ -1,12 +1,12 @@
 /*
-* ------------------------------------------------------------
-* IMPORTANT: The contents of this file are auto-generated.
-*
-* This file may be updated by the Shopify admin theme editor
-* or related systems. Please exercise caution as any changes
-* made to this file may be overwritten.
-* ------------------------------------------------------------
-*/
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "name": "t:sections.header.name",
   "type": "header",
@@ -25,6 +25,7 @@
       "block_order": [
         "announcement-bar-0"
       ],
+      "disabled": true,
       "settings": {
         "color_scheme": "scheme-1",
         "show_line_separator": true,
@@ -37,6 +38,7 @@
     },
     "header": {
       "type": "header",
+      "disabled": true,
       "settings": {
         "logo_position": "middle-left",
         "menu": "main-menu",
@@ -53,10 +55,78 @@
         "padding_top": 20,
         "padding_bottom": 20
       }
+    },
+    "custom_announcement_bar_CnBdcH": {
+      "type": "custom-announcement-bar",
+      "blocks": {
+        "icons_yiLUjw": {
+          "type": "icons",
+          "settings": {
+            "announcement_icon": "shopify://shop_images/Vector_1.png",
+            "announcement_icon_links": ""
+          }
+        },
+        "icons_bDNdah": {
+          "type": "icons",
+          "settings": {
+            "announcement_icon": "shopify://shop_images/Vector_2.png",
+            "announcement_icon_links": ""
+          }
+        },
+        "icons_BWnzdi": {
+          "type": "icons",
+          "settings": {
+            "announcement_icon": "shopify://shop_images/Vector_3.png",
+            "announcement_icon_links": ""
+          }
+        },
+        "icons_an7Nrz": {
+          "type": "icons",
+          "settings": {
+            "announcement_icon": "shopify://shop_images/Vector_4.png",
+            "announcement_icon_links": ""
+          }
+        }
+      },
+      "block_order": [
+        "icons_yiLUjw",
+        "icons_bDNdah",
+        "icons_BWnzdi",
+        "icons_an7Nrz"
+      ],
+      "settings": {
+        "bg-color-announce": "#a53336",
+        "phone_icon": "shopify://shop_images/Vector.png",
+        "announcement_text_1": "Toll-Free 877-984-CAPS (2277)",
+        "color-text-1": "#ffffff",
+        "announcement_text_2": "Due to the high demand for Otto brand caps ship time may be slower than normal."
+      }
+    },
+    "custom_navbar_xC7mQd": {
+      "type": "custom-navbar",
+      "settings": {
+        "logo": "shopify://shop_images/1576798741-1574270055-capwholesalerslogo_1.png",
+        "search_placeholder": "What are you looking for?",
+        "link_reviews": "",
+        "link_size_charts": "",
+        "reviews_text": "Cap Wholesalers Reviews",
+        "size_charts_text": "Size Charts",
+        "navbar_background_color": "#ffffff",
+        "text_color_nav": "#ffffff"
+      }
+    },
+    "custom_filter_aQMxhD": {
+      "type": "custom-filter",
+      "settings": {
+        "selected_menu": "filter-menu"
+      }
     }
   },
   "order": [
     "announcement-bar",
-    "header"
+    "header",
+    "custom_announcement_bar_CnBdcH",
+    "custom_navbar_xC7mQd",
+    "custom_filter_aQMxhD"
   ]
 }
