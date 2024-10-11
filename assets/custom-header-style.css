@@ -44,6 +44,7 @@
   font-weight: 700;
 }
 .swiper .mySwiper{
+  max-width: 900px;
 }
 .swiper-slide{
 display: flex;
@@ -52,7 +53,12 @@ height: 554px;
 justify-content: end;
 align-items: center;
 border-radius: 4px;
+max-width: 900px;
+padding: 0;
 
+}
+.swiper-wrapper{
+  max-width: 900px;
 }
 .slider-cont{
   margin-right: 109px;
@@ -80,5 +86,7 @@ border-radius: 4px;
   padding: 0px 55px;
 }
 .swiper-button-next , .swiper-button-prev{
-  display: block;
+ background: transparent;
+ border: none;
+ color: gray;
 }

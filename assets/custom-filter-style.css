@@ -26,6 +26,7 @@
 }
 .brand-list li {
   list-style: none;
+  position: relative;
 }
 .brand-link {
   color: white;
@@ -38,5 +39,29 @@
   background: #a53336;
 }
 .brand-link:hover {
+  background: #a53336;
+}
+.brand-dropdown {
+  position: absolute;
+  display: none;
+  background: black; 
+  padding: 20px 20px ;
+  border-radius: 5px;
+  top: 100%; 
+  left: 0;
+
+  z-index: 1;
+}
+.brand-dropdown li a{
+  color: white;
+  text-decoration: none;
+  padding: 5px 10px;
+  border-radius: 10px;
+}
+
+.brand-list li:hover .brand-dropdown {
+  display: block;
+}
+.brand-dropdown li a:hover{
   background: #a53336;
 }

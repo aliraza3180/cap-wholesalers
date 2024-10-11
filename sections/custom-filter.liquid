@@ -2,45 +2,35 @@
   <div class="brand-filter">
     <a href="/collections/all" class="filter-button">SHOP BY BRAND NAME</a>
     <ul class="brand-list">
-      <li>
-        <a href="/collections/adams-headwear" class="brand-link">Adams Headwear</a>
-      </li>
-      <li>
-        <a href="/collections/imperial-hats" class="brand-link">Imperial Hats</a>
-      </li>
-      <li>
-        <a href="/collections/kati-sportsman" class="brand-link">Kati/Sportsman</a>
-      </li>
-      <li>
-        <a href="/collections/legacy-headwear" class="brand-link">Legacy Headwear</a>
-      </li>
-      <li>
-        <a href="/collections/mega" class="brand-link">Mega</a>
-      </li>
-      <li>
-        <a href="/collections/otto-hats" class="brand-link">Otto Hats</a>
-      </li>
-      <li>
-        <a href="/collections/outdoor-caps" class="brand-link">Outdoor Caps</a>
-      </li>
-      <li>
-        <a href="/collections/pacific-headwear-augusta" class="brand-link">Pacific Headwear Augusta</a>
-      </li>
-      <li>
-        <a href="/collections/reprime" class="brand-link">Reprime</a>
-      </li>
-      <li>
-        <a href="/collections/richardson-hats-all-styles" class="brand-link">Richardson Hats: All Styles</a>
-      </li>
-    </ul>
+  {% for link in linklists[section.settings.selected_menu].links %}
+    <li>
+      <a href="{{ link.url }}" class="brand-link">{{ link.title }}</a>
+      {% if link.links.size > 0 %}
+        <ul class="brand-dropdown">
+          {% for child_link in link.links %}
+            <li>
+              <a href="{{ child_link.url }}" class="brand-child-link">{{ child_link.title }}</a>
+            </li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+    </li>
+  {% endfor %}
+</ul>
+
   </div>
 </div>
-
 
 {% schema %}
   {
     "name": "Filter 1",
-    "settings": [],
+    "settings": [
+      {
+        "type": "link_list",
+        "id": "selected_menu",
+        "label": "Select a Menu"
+      }
+    ],
     "presets": [
       {
         "name": "Custom Filter",
@@ -51,22 +41,21 @@
 {% endschema %}
 
 <script>
-    document.addEventListener('DOMContentLoaded', function() {
+  document.addEventListener('DOMContentLoaded', function() {
     const brandLinks = document.querySelectorAll('.brand-link');
     
     brandLinks.forEach(link => {
-        link.addEventListener('click', function(event) {
-            brandLinks.forEach(link => link.classList.remove('active'));
-            
-            event.target.classList.add('active');
-        });
+      link.addEventListener('click', function(event) {
+        brandLinks.forEach(link => link.classList.remove('active'));
+        event.target.classList.add('active');
+      });
     });
-  
+
     const currentUrl = window.location.pathname;
     brandLinks.forEach(link => {
-        if (link.getAttribute('href') === currentUrl) {
-            link.classList.add('active');
-        }
+      if (link.getAttribute('href') === currentUrl) {
+        link.classList.add('active');
+      }
     });
   });
 </script>

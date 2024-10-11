@@ -24,19 +24,37 @@
     <div class="swiper-wrapper">
       <div class="swiper-slide" style="background: url('{{ 'truck-bg.png' | asset_url }}') no-repeat center center; background-size: cover;">
         <div class="slider-cont">
-          <h2 class="slider-heading"> 
-            HOTEST <br>
+          <h2 class="slider-heading">
+            HOTTEST <br>
             SNAPBACKS
           </h2>
           <button class="hero-btn">SHOP NOW</button>
         </div>
       </div>
-
+      <div class="swiper-slide" style="background: url('{{ 'h2r-bg.jpg' | asset_url }}') no-repeat center center; background-size: cover;">
+        <div class="slider-cont">
+          <h2 class="slider-heading">
+            HOTTEST <br>
+            SNAPBACKS 2
+          </h2>
+          <button class="hero-btn">SHOP NOW 2</button>
+        </div>
+      </div>
     </div>
+    <!-- Swiper buttons -->
     <button class="swiper-button-next"></button>
     <button class="swiper-button-prev"></button>
   </div>
-  <div class="header-left"></div>
+
+  <div class="header-left">
+    <a href="">
+      <div class="women-cap"></div>
+    </a>
+
+    <a href="">
+      <div class="kids-cap"></div>
+    </a>
+  </div>
 </div>
 
 {% schema %}
@@ -51,18 +69,15 @@
     ]
   }
 {% endschema %}
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
 <script>
-   var swiper = new Swiper(".mySwiper", {
-  navigation: {
-    nextEl: ".swiper-button-next",
-    prevEl: ".swiper-button-prev",
-  },
-  autoplay: {
-    delay: 3000, // Autoplay delay in milliseconds
-    disableOnInteraction: false,
-  },
-  loop: true, // Enable infinite loop
-});
-  
+  var swiper = new Swiper(".mySwiper", {
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+    
+    loop: true, // Enable infinite loop
+  });
 </script>
