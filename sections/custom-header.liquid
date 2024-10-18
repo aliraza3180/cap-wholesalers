@@ -1,73 +1,185 @@
-<div class="header-main">
-  <div class="header-left">
-    <div class="collection-heading">
-      <button class="menu-toggle">
-        <i class="fas fa-bars"></i>
-      </button>
-      <h2 class="shop-by">
-        Shop by Collection
-      </h2>
+<div class="hero-section">
+  <div class="header-main">
+    <div class="header-left">
+      <div class="collection-heading">
+        <button class="menu-toggle">
+          <i class="fas fa-bars"></i>
+        </button>
+        <h2 class="shop-by">Shop by Collection</h2>
+      </div>
+      <div class="collection-list">
+        {% for collection in collections %}
+          <div class="collection-item">
+            <a class="collection-title" href="/collections/{{ collection.handle }}">
+              {{ collection.title }}
+            </a>
+          </div>
+        {% endfor %}
+      </div>
     </div>
-    <div class="collection-list">
-      {% for collection in collections %}
-        <div class="collection-item">
-          <a class="collection-title" href="/collections/{{ collection.handle }}">
-            {{ collection.title }}
+
+    <div class="swiper mySwiper">
+      <div class="swiper-wrapper hero-wrapper">
+        {% for block in section.blocks %}
+          {% if block.type == 'slider' %}
+            <div
+              class="swiper-slide hero-slide"
+              style="background: url('{{ block.settings.slider-img-1 | image_url }}'); background-size:cover; background-position:center;"
+            >
+              <div class="slider-cont">
+                <h2 class="slider-heading" style="color:{{ block.settings.head-color }}">
+                  {{ block.settings['hero-slider-text'] }}
+                </h2>
+                <a
+                  style="color:{{ block.settings.color-btn-1 }}; background:{{ block.settings.btn-bg-1 }};"
+                  href="{{ block.settings.btn-link }}"
+                  class="hero-btn"
+                >
+                  {{- block.settings['hero-btn-text'] -}}
+                </a>
+              </div>
+            </div>
+          {% endif %}
+        {% endfor %}
+      </div>
+      <!-- Swiper buttons -->
+      <button class="swiper-button-next"></button>
+      <button class="swiper-button-prev"></button>
+    </div>
+
+    <div class="header-right">
+      {% for block in section.blocks %}
+        {% if block.type == 'container' %}
+          <a class="women-cont" href="{{ block.settings.women-cont-link }}">
+            <div
+              class="women-cap"
+              style="background: url('{{ block.settings.women-img-1 | image_url }}'); background-size:cover; background-position:center;"
+            >
+              <h2 class="container-heading" style="color:{{ block.settings.upper-head-color }}">
+                {{ block.settings['upper-text'] }}
+              </h2>
+            </div>
           </a>
-        </div>
+
+          <a class="kids-cont" href="{{ block.settings.kids-cont-link }}">
+            <div
+              class="kids-cap"
+              style="background: url('{{ block.settings.kids-img-1 | image_url }}'); background-size:cover; background-position:center;"
+            >
+              <h2 class="container-heading" style="color:{{ block.settings.lower-head-color }}">
+                {{ block.settings['lower-text'] }}
+              </h2>
+            </div>
+          </a>
+        {% endif %}
       {% endfor %}
     </div>
-
-  </div>
-
-  <div class="swiper mySwiper">
-    <div class="swiper-wrapper">
-      <div class="swiper-slide" style="background: url('{{ 'truck-bg.png' | asset_url }}') no-repeat center center; background-size: cover;">
-        <div class="slider-cont">
-          <h2 class="slider-heading">
-            HOTTEST <br>
-            SNAPBACKS
-          </h2>
-          <button class="hero-btn">SHOP NOW</button>
-        </div>
-      </div>
-      <div class="swiper-slide" style="background: url('{{ 'h2r-bg.jpg' | asset_url }}') no-repeat center center; background-size: cover;">
-        <div class="slider-cont">
-          <h2 class="slider-heading">
-            HOTTEST <br>
-            SNAPBACKS 2
-          </h2>
-          <button class="hero-btn">SHOP NOW 2</button>
-        </div>
-      </div>
-    </div>
-    <!-- Swiper buttons -->
-    <button class="swiper-button-next"></button>
-    <button class="swiper-button-prev"></button>
-  </div>
-
-  <div class="header-left">
-    <a href="">
-      <div class="women-cap"></div>
-    </a>
-
-    <a href="">
-      <div class="kids-cap"></div>
-    </a>
   </div>
 </div>
 
 {% schema %}
-  {
-    "name": "Custom Header",
-    "settings": [],
-    "presets": [
+{
+  "name": "Custom Header",
+  "settings": [
+
+  ],
+  "blocks": [
+    {
+      "type": "slider",
+      "name": "Slide",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "slider-img-1",
+          "label": "t:sections.collage.blocks.image.settings.image.label"
+        }, {
+          "type": "text",
+          "id": "hero-slider-text",
+          "label": "t:sections.collapsible_content.settings.heading.label",
+          "default":"HOTTEST SNAPBACKS"
+        },
       {
-        "name": "Custom Header",
-        "category": "Custom"
-      }
-    ]
-  }
+        "type": "color",
+        "id": "head-color",
+        "label": "Heading Color",
+        "default": "#FFFFFF"
+      },{
+          "type": "text",
+          "id": "hero-btn-text",
+          "label": "Button Text",
+          "default":"SHOP NOW"
+        },
+      {
+        "type": "color",
+        "id": "color-btn-1",
+        "label": "Button Text Color",
+        "default": "#FFFFFF"
+      },
+      {
+  "type": "color",
+  "id": "btn-bg-1",
+  "label": "Button Background Color",
+  "default": "#A53336"
+}, {
+            "type": "url",
+            "id": "btn-link",
+            "label": "Choose Button Link"
+          }
+      ]
+    },
+    {
+      "type": "container",
+      "name": "Right Image Continers",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "women-img-1",
+          "label": "Upper Image"
+        },{
+          "type": "text",
+          "id": "upper-text",
+          "label": "Upper container Text",
+          "default":"WOMEN'S CAPS"
+        },
+      {
+        "type": "color",
+        "id": "upper-head-color",
+        "label": "Upper Text Color",
+        "default": "#FFFFFF"
+      },{
+            "type": "url",
+            "id": "women-cont-link",
+            "label": "Choose Upper Container Link"
+          },{
+          "type": "image_picker",
+          "id": "kids-img-1",
+          "label": "Lower Image"
+        },{
+          "type": "text",
+          "id": "lower-text",
+          "label": "Lower Container Text",
+          "default":"KID'S CAPS"
+        },
+      {
+        "type": "color",
+        "id": "lower-head-color",
+        "label": "Lower Text Color",
+        "default": "#FFFFFF"
+      },{
+            "type": "url",
+            "id": "kids-cont-link",
+            "label": "Choose Lower Container Link"
+          }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Custom Header",
+      "category": "Custom"
+    }
+  ]
+}
 {% endschema %}
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
@@ -77,7 +189,7 @@
       nextEl: ".swiper-button-next",
       prevEl: ".swiper-button-prev",
     },
-    
+
     loop: true, // Enable infinite loop
   });
 </script>
