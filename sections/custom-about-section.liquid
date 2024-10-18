@@ -1,0 +1,138 @@
+<div class="wholesale-section">
+  <div class="wholesale-container container">
+    <div
+      class="left-side"
+      style="
+          background: url('{{ section.settings.left_background | image_url }}');
+          background-size: cover;
+          background-position: center;
+        background-color: rgba(255, 255, 255,{{ section.settings.left_opacity }});
+      "
+    >
+      <div class="left-text-cont">
+        <h2 class="about-head best-head">{{ section.settings.left_heading }}</h2>
+        <div class="about-left-text">
+          <p class="text-line-1">{{ section.settings.text_line_1 }}</p>
+          <p class="text-line-1">{{ section.settings.text_line_2 }}</p>
+          <p class="text-line-1">{{ section.settings.text_line_3 }}</p>
+        </div>
+      </div>
+    </div>
+
+    <div
+      class="right-side"
+      style="
+          background-image: url('{{ section.settings.right_background | image_url }}');
+          background-size: cover;
+          background-position: center;
+        background-color: rgba(255, 255, 255,{{ section.settings.right_opacity }});
+      "
+    >
+      <div class="right-text-cont">
+        <h2 class="about-head best-head">{{ section.settings.right_heading }}</h2>
+        <div class="blocks-container">
+          {% for block in section.blocks %}
+            <div class="block-item">
+              <img src="{{ block.settings.block_image | image_url }}" alt="Icon">
+              <p style="color: {{ block.settings.block_text_color }}">{{ block.settings.block_text }}</p>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "About Us Section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "left_heading",
+      "label": "Left Side Heading",
+      "default": "Wholesale Hats: Blank Hats in Bulk"
+    },
+    {
+      "type": "textarea",
+      "id": "text_line_1",
+      "label": "Line One Text"
+    },
+    {
+      "type": "textarea",
+      "id": "text_line_2",
+      "label": "Left Two Text"
+    },
+    {
+      "type": "textarea",
+      "id": "text_line_3",
+      "label": "Left Three Text"
+    },
+    {
+      "type": "image_picker",
+      "id": "left_background",
+      "label": "Left Side Background Image"
+    },
+    {
+      "type": "range",
+      "id": "left_opacity",
+      "label": "Left Side Opacity",
+      "min": 0,
+      "max": 1,
+      "step": 0.1,
+      "default": 1
+    },
+    {
+      "type": "text",
+      "id": "right_heading",
+      "label": "Right Side Heading",
+      "default": "Getting Blank Hats Wholesale from Us Means:"
+    },
+    {
+      "type": "image_picker",
+      "id": "right_background",
+      "label": "Right Side Background Image"
+    },
+    {
+      "type": "range",
+      "id": "right_opacity",
+      "label": "Right Side Opacity",
+      "min": 0,
+      "max": 1,
+      "step": 0.1,
+      "default": 1
+    }
+  ],
+  "blocks": [
+    {
+      "type": "info_block",
+      "name": "Info Block",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "block_image",
+          "label": "Block Image"
+        },
+        {
+          "type": "text",
+          "id": "block_text",
+          "label": "Block Text",
+          "default": "Everyone gets wholesale pricing"
+        },
+        {
+          "type": "color",
+          "id": "block_text_color",
+          "label": "Block Text Color",
+          "default": "#000000"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "About Us Section",
+      "category": "Custom"
+    }
+  ]
+}
+{% endschema %}
