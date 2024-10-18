@@ -1,28 +1,31 @@
 .filter-main {
-  padding: 0 40px;
   background: black;
+  padding:13px 0;
 }
 .brand-filter {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content:space-between;
 }
 .brand-link {
   text-decoration: none;
 }
 .filter-button {
-  text-decoration: none;
-  color: white;
-  background: #a53336;
-  padding: 3px 44px;
-  border-radius: 10px;
-  font-size: 15px;
-  font-weight: bold;
+    text-decoration: none;
+    color: #fff;
+    background: #a53336;
+    padding: 5px 39px;
+    border-radius: 5px;
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: -0.4px;
+    line-height: normal;
 }
 .brand-list {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap:35px;
+ 
 }
 .brand-list li {
   list-style: none;
@@ -30,16 +33,16 @@
 }
 .brand-link {
   color: white;
-  padding: 4px 10px;
   border-radius: 10px;
   font-size: 15px;
-  font-weight: 600;
+  font-weight: 700;
+  letter-spacing:-0.3px;
 }
 .brand-link.active {
-  background: #a53336;
+  color: #a53336;
 }
 .brand-link:hover {
-  background: #a53336;
+  color: #a53336;
 }
 .brand-dropdown {
   position: absolute;
@@ -49,19 +52,16 @@
   border-radius: 5px;
   top: 100%; 
   left: 0;
-
   z-index: 1;
 }
 .brand-dropdown li a{
   color: white;
   text-decoration: none;
-  padding: 5px 10px;
-  border-radius: 10px;
 }
 
 .brand-list li:hover .brand-dropdown {
   display: block;
 }
 .brand-dropdown li a:hover{
-  background: #a53336;
+  color: #a53336;
 }
