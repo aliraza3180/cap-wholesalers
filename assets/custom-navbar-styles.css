@@ -1,11 +1,10 @@
 .custom-navbar {
-  padding: 5px 20px;
+  padding: 12.2px 0px;
 }
 .nav-container {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 10px 20px;
 }
 
 .custom-navbar .logo img {
@@ -30,7 +29,6 @@
   font-weight: 500;
 }
 .search-bar input[type="text"] {
-  padding: 5px;
   border: none;
   outline: none;
   flex-grow: 1;
@@ -46,45 +44,46 @@
   font-size: 15px;
   font-weight: 600;
   align-items: center;
-  padding: 15px 20px;
+  padding: 13px 20px;
   cursor: pointer;
 }
 .cart-login-section {
   display: flex;
   align-items: center;
-  gap: 25px;
+  gap:23px;
 }
 .custom-hr {
   height: 14px;
   width: 1px;
   background-color: #cbcbcb;
+  display:block ! important;
 }
 .nav-links {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap:13px;
 }
 .nav-links a {
   color: #a53336;
-  margin: 0px;
-  text-decoration: none;
-  font-weight: bold;
+ 
 }
 .custom-btns {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 13px;
 }
-.cart-login-section .a_tag_2 {
+.cart-login-section .a_tag_1 , .a_tag_2 {
   background-color: #a53336;
-  color: white;
-  padding: 15px 25px;
   display: flex;
   align-items: center;
-  gap: 6px;
-  margin-left: 10px;
+  gap: 5px;
   text-decoration: none;
   border-radius: 5px;
-  font-size: 14px;
-  font-weight: bold;
+  
+}
+.cart-login-section .a_tag_1{
+  padding: 10px 24px;
+}
+.cart-login-section .a_tag_2{
+  padding: 10px 14px;
 }
