@@ -1,0 +1,99 @@
+<div class="custom-collection-section">
+  <div class="container_collection container">
+    {% for block in section.blocks %}
+      {% assign collection = collections[block.settings.collection] %}
+
+      {% if collection %}
+        <div
+          class="
+            collection-block
+            {% if block.settings.hide_on_mobile %} hide-mobile {% endif %}
+            {% if block.settings.hide_on_tablet %} hide-tablet {% endif %}
+          "
+          style="
+            width: {{ block.settings.block_width }};
+            background-image:
+                url({{ collection.image.src | img_url: 'master' }});
+
+            background-size: cover;
+            background-position: center;
+            min-height: 343px;
+          "
+        >
+          <div class="collection-info">
+            <h2 class="collection-title-2">{{ collection.title }}</h2>
+            <a href="{{ collection.url }}" class="shop-now-btn">{{ block.settings.button_text }}</a>
+          </div>
+        </div>
+      {% else %}
+        <p>No collection selected</p>
+      {% endif %}
+    {% endfor %}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Custom Collection Section",
+  "settings": [],
+  "blocks": [
+    {
+      "type": "collection_block",
+      "name": "Collection Block",
+      "settings": [
+        {
+          "type": "collection",
+          "id": "collection",
+          "label": "Select Collection"
+        },
+        {
+          "type": "text",
+          "id": "button_text",
+          "label": "Button Text",
+          "default": "Shop Now"
+        },
+        {
+          "type": "checkbox",
+          "id": "hide_on_mobile",
+          "label": "Hide on Mobile"
+        },
+        {
+          "type": "checkbox",
+          "id": "hide_on_tablet",
+          "label": "Hide on Tablet"
+        },
+        {
+          "type": "select",
+          "id": "block_width",
+          "label": "Block Width",
+          "options": [
+            {
+              "value": "32.5%",
+              "label": "33%"
+            },
+            {
+              "value": "49.4%",
+              "label": "50%"
+            },
+            {
+              "value": "65%",
+              "label": "66%"
+            },
+            {
+              "value": "100%",
+              "label": "100%"
+            }
+          ],
+          "default": "32.5%"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Custom Collection Section",
+      "category": "Custom"
+    }
+  ]
+}
+{% endschema %}
