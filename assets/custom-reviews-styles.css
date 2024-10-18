@@ -1,0 +1,118 @@
+.testimonial-container {
+  display: flex;
+  flex-direction: column;
+  padding: 15px 0px 0px;
+  gap: 16px;
+}
+.rev-head {
+  color: #a53336;
+}
+.test-btn {
+  background: #b04d4f;
+  color: white;
+}
+.testimonial-slider {
+  width: 100%;
+}
+
+.swiper-slide {
+  display: flex;
+  justify-content: center;
+
+  margin-right: 0px !important;
+}
+.test-wrapper {
+  padding-bottom: 38px;
+  gap: 20px;
+}
+
+.testimonial-card {
+  padding: 14px 16px 37px 16px;
+  background-color: #ececec;
+  min-width: 300px;
+  display: flex;
+  gap: 15px;
+  border-radius: 5px;
+  border: 1px solid #dedede;
+  flex-direction: column;
+}
+.inverted-triangle {
+  width: 0;
+  height: 0;
+  position: absolute;
+  border-left: 14px solid transparent;
+  border-right: 14px solid transparent;
+  border-top: 15px solid #dedede; /* Inside color */
+  background: transparent;
+  left: 11px;
+}
+
+/* Optional: Adding top border outline */
+.inverted-triangle::before {
+  content: "";
+  position: relative;
+  top: -7px;
+  left: -12px;
+  border-left: 12px solid transparent;
+  border-right: 12px solid transparent;
+  border-top: 12px solid #e6e6e6;
+}
+.testimonial-card h3 {
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: -0.3px;
+  line-height: normal;
+  color: #000000;
+}
+
+.test-para {
+  font-size: 15px;
+  line-height: 26px;
+  letter-spacing: -0.4px;
+  font-weight: 700;
+  color: #212121;
+}
+
+.review-info {
+  color: #a53336;
+  font-style: italic;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: normal;
+  letter-spacing: -0.3px;
+}
+
+.view-all-btn:hover {
+  background-color: #f6632e;
+}
+
+.swiper-button-next-2,
+.swiper-button-prev-2 {
+  color: #a93335;
+}
+
+@media (max-width: 992px) {
+  .testimonial-card {
+    width: 45%;
+  }
+}
+
+@media (max-width: 768px) {
+  .testimonial-card {
+    width: 90%;
+  }
+
+  .testimonial-section h2 {
+    font-size: 1.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .testimonial-section {
+    padding: 20px 10px;
+  }
+
+  .testimonial-section h2 {
+    font-size: 1.6rem;
+  }
+}
