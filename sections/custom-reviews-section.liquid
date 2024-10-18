@@ -1,0 +1,138 @@
+<section class="testimonial-section container">
+  <div class="testimonial-container">
+    <div class="header">
+      <h2 Class="best-head rev-head">{{ section.settings.section_title }}</h2>
+      <a href="{{ section.settings.view_all_link }}" class="view-all-btn test-btn">
+        {{ section.settings.view_all_text }}
+      </a>
+    </div>
+
+    <!-- Swiper Container -->
+    <div class="swiper testimonial-slider">
+      <div class="swiper-wrapper test-wrapper">
+        {% for block in section.blocks %}
+          <div class="swiper-slide">
+            <div class="test-card">
+              <div class="testimonial-card">
+                <h3>{{ block.settings.testimonial_heading }}</h3>
+                <p class="test-para">{{ block.settings.testimonial_content }}</p>
+                <p class="review-info">
+                  <em
+                    >Reviewed {{ block.settings.review_date }}
+                    {{ block.settings.review_time -}}</em
+                  ><br>
+                  <strong>By {{ block.settings.reviewer_name }}</strong>
+                </p>
+              </div>
+              <div class="side-cone"><div class="inverted-triangle"></div></div>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+
+      <!-- Swiper Pagination -->
+      <div class="swiper-pagination"></div>
+
+      <!-- Swiper Navigation -->
+      <div class="swiper-button-prev-2"></div>
+      <div class="swiper-button-next-2"></div>
+    </div>
+  </div>
+</section>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    var swiper = new Swiper('.testimonial-slider', {
+      slidesPerView: 4,
+      spaceBetween: 20,
+      loop: true,
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
+      navigation: {
+        nextEl: '.swiper-button-next-2',
+        prevEl: '.swiper-button-prev-2',
+      },
+      breakpoints: {
+        768: {
+          slidesPerView: 2,
+        },
+        992: {
+          slidesPerView: 3,
+        },
+        1600: {
+          slidesPerView: 4,
+        },
+      },
+    });
+  });
+</script>
+
+{% schema %}
+{
+  "name": "Testimonial Section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "section_title",
+      "label": "Section Title",
+      "default": "Customer Testimonials"
+    },
+    {
+      "type": "url",
+      "id": "view_all_link",
+      "label": "View All Link",
+
+    },
+    {
+      "type": "text",
+      "id": "view_all_text",
+      "label": "View All Button Text",
+      "default": "View all Reviews"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "testimonial",
+      "name": "Testimonial",
+      "settings": [
+        {
+          "type": "text",
+          "id": "testimonial_heading",
+          "label": "Testimonial Heading",
+          "default": "Amazing Product!"
+        },
+        {
+          "type": "textarea",
+          "id": "testimonial_content",
+          "label": "Testimonial Content",
+          "default": "I'm really happy with this product. The quality is outstanding and the service was excellent!"
+        },
+        {
+          "type": "text",
+          "id": "reviewer_name",
+          "label": "Reviewer Name",
+          "default": "John Doe"
+        },
+        {
+          "type": "text",
+          "id": "review_date",
+          "label": "Review Date"
+        },
+        {
+          "type": "text",
+          "id": "review_time",
+          "label": "Review Time"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Default",
+      "category": "Custom"
+    }
+  ]
+}
+{% endschema %}
