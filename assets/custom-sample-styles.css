@@ -1,0 +1,31 @@
+.sample-section{
+    padding:3px 0px;
+  }
+  .sample-container{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+  }
+  .center-content{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:12px;
+  }
+  .sample-heading{
+       font-size: 45px;
+      font-weight: 700;
+      line-height: 59px;
+      letter-spacing: -1.1px;
+  }
+  .sample-btn{
+        text-decoration: none;
+      font-weight: bold;
+      font-size: 15px;
+      letter-spacing: -0.3px;
+        line-height: 15px;
+    padding:15px 60px;
+    border-radius:5px;
+    
+  }
+  
