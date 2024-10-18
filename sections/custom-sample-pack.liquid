@@ -1,0 +1,107 @@
+<div
+  class="sample-section"
+  style="
+    background: {{ section.settings.background_color }};
+    {% if section.settings.background_image != blank %}
+    background-image: url({{ section.settings.background_image | image_url }});
+    background-size: cover;
+    background-position: center;
+    {% endif %}
+  "
+>
+  <div class="sample-container container">
+    <div class="left-image">
+      <img src="{{ section.settings.left_image | image_url }}" alt="Left Image">
+    </div>
+
+    <div class="center-content">
+      <h2 class="sample-heading" style="color: {{ section.settings.text_color }}">
+        {{ section.settings.center_text }}
+      </h2>
+      <a
+        href="{{ section.settings.button_link }}"
+        class="sample-btn a_tag"
+        style="
+          color: {{ section.settings.button_text_color }};
+          background-color: {{ section.settings.button_background_color }};
+        "
+      >
+        {{ section.settings.button_text }}
+      </a>
+    </div>
+
+    <div class="right-image">
+      <img src="{{ section.settings.right_image | image_url }}" alt="Right Image">
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Custom Sample Pack",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "background_image",
+      "label": "Background Image"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background Color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "image_picker",
+      "id": "left_image",
+      "label": "Left Image"
+    },
+    {
+      "type": "text",
+      "id": "center_text",
+      "label": "Center Text",
+      "default": "Sample Packs"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text Color",
+      "default": "#a53336"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button Text",
+      "default": "BUY SAMPLES"
+    },
+    {
+      "type": "color",
+      "id": "button_text_color",
+      "label": "Button Text Color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "button_background_color",
+      "label": "Button Background Color",
+      "default": "#a53336"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button Link"
+    },
+    {
+      "type": "image_picker",
+      "id": "right_image",
+      "label": "Right Image"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Custom Sample Pack",
+      "category": "Custom"
+    }
+  ]
+}
+{% endschema %}
